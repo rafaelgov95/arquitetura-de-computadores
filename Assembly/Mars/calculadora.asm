@@ -19,13 +19,24 @@ msg_resultado: .ascii "Resultado:"
  sub $t2, $t1,$t0
  # if($t0==1) 
  beq $t2,$zero,soma
+ 
  li $t1,2
  sub $t2, $t1,$t0
  # if($t0==2) 
  beq $t2,$zero,subtrair
  
- j lop
+ li $t1,2
+ sub $t2, $t1,$t0
+ # if($t0==3) 
+ beq $t2,$zero,multiplicar
+ li $t1,2
+ sub $t2, $t1,$t0
+ # if($t0==4) 
+ beq $t2,$zero,dividir
  
+ j lop
+ dividir:
+ multiplicar:
 subtrair:
 soma:
 encerrar:
