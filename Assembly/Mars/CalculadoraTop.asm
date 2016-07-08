@@ -1,85 +1,86 @@
 .data
-$soma: .asciiz  "soma: \n" #declara variavel soma como 'soma: \n'
-$subtracao: .asciiz "\nsubtracao: \n" #declara variavel subtracao como 'subtracao: \n'
-$multiplicacao: .asciiz "\nmultiplicacao: \n" #declara variavel multiplicacao como 'multiplicacao: \n'
-$divisao: .asciiz "\ndivisao: \n" #declara variavel divisao como 'divisao: \n'
+$menu: .asciiz "\nOlá Seja bem Vindo a MegaMaster Calculator \n Agora escolhe uma das Opçoẽs abaixo: \n 1-Soma \n 2-Subtracao \n 3-Multiplicacao\n 4-Divisao \n 5-Sair \n"
+$msg_valor: .asciiz "\nInsira o primeiro valor:\n"
+$msg_valor2: .asciiz "\n Insira o segundo valor:\n"
+$msg_soma: .asciiz  "\n Resultado da Soma:\n" 
+$msg_sub: .asciiz "\n Resultado da subtracao :\n" 
+$msg_mult: .asciiz "\n Resultado da Multiplicacao:\n"
+$msg_div: .asciiz "\nResultado da Divisao:" 
 
-$message1: .asciiz "\nInsira o primeiro valor:\n"
-$message2: .asciiz "\nInsira o segundo valor:\n"
-$message3: .asciiz "\nEscolha a operação:\n1-Soma\n2-Subtracao\n3-Multiplicacao\n4-Divisao\n"
 
 .text
-main:
-	li $v0,4 #comando de impressão de inteiro na tela
-	la $a0, $message1 #coloca o texto soma para ser impresso
-	syscall # efetua a chamada ao sistema
-	
-	li $v0, 5 #le entrada do usuário
-	syscall #faz chamada ao sistema
-	
-	move $s0, $v0 # move conteúdo de $v0 para $s0
-	
-	li $v0,4 #comando de impressão de inteiro na tela
-	la $a0, $message2 #coloca o texto soma para ser impresso
-	syscall # efetua a chamada ao sistema
-	
-	li $v0, 5 #le entrada do usuário
-	syscall # efetua a chamada ao sistema
-	
-	move $s1, $v0 # move conteúdo de $v0 para $s1
-	
-	li $v0,4 #comando de impressão de inteiro na tela
-	la $a0, $message3 #coloca o texto soma para ser impresso
-	syscall # efetua a chamada ao sistema
-	
-	li $v0, 5 #le entrada do usuário
-	syscall # efetua a chamada ao sistema
-	
-	move $s2, $v0 # move conteúdo de $v0 para $s2
-	
-	beq $s2,1,somaOp #verifica se $s2 é igual a 1 se for desvia para somaOP
-	beq $s2,2,subtracaoOp #verifica se $s2 é igual a 2 se for desvia para subtracaoOP
-	beq $s2,3,multiplicacaoOp #verifica se $s2 é igual a 3 se for desvia para multiplicacaoOP
-	beq $s2,4,divisaoOp #verifica se $s2 é igual a 4 se for desvia para divisaoOP
-	j termina #desvia para termina
-	
-somaOp:
-	li $v0,4 #comando de impressão de inteiro na tela
-	la $a0, $soma #coloca o texto soma para ser impresso
-	syscall # efetua a chamada ao sistema
-	
-	add $s2, $s0, $s1 #soma os valores dos registradores $s0 e $s1 e insere o resultado no registrador $s2
-	j termina #desvia para termina
-	
-subtracaoOp:
-	li $v0,4 #comando de impressão de inteiro na tela
-	la $a0, $subtracao #coloca o texto subtração para ser impresso
-	syscall # efetua a chamada ao sistema
+        
+inicio:
 
-	sub $s2, $s0, $s1 #subtrai os valores dos registradores $s0 e $s1 e insere o resultado no registrador $s2
-	j termina #desvia para termina
+	li $v0,4 
+	la $a0, $menu 
+	syscall 
+	li $v0, 5 
+	syscall 
+	move $s2, $v0
+        beq $s2,5,fim_fim
+        jal dados
+       
+ dados:
+        li $v0,4 
+	la $a0, $msg_valor
+	syscall 
 	
-multiplicacaoOp:
-	li $v0,4 #comando de impressão de inteiro na tela
-	la $a0, $multiplicacao #coloca o texto multiplicacao para ser impresso
-	syscall # efetua a chamada ao sistema
+	li $v0, 5
+	syscall 
+	
+	move $s0, $v0
+	
+	li $v0,4
+	la $a0, $msg_valor2
+	syscall 
+	li $v0, 5
+	syscall 	
+	move $s1, $v0 
 
-	mul $s2, $s0, $s1 #multiplica os valores dos registradores $s0 e $s1 e insere o resultado no registrador $s2
-	j termina #desvia para termina
+	beq $s2,1,soma
+	beq $s2,2,sube
+	beq $s2,3,multi
+	beq $s2,4,divi
+        beq $s2,5,fim_fim
+        jal inicio
+        
+divi:
+	li $v0,4 
+	la $a0, $msg_div 
+	syscall 
+	div $s2, $s0, $s1
+	jal fim_e_impressao
 	
-divisaoOp:
-	li $v0,4 #comando de impressão de inteiro na tela
-	la $a0, $divisao #coloca o texto divisao para ser impresso
-	syscall # efetua a chamada ao sistema
-
-	div $s2, $s0, $s1 #divide os valores dos registradores $s0 e $s1 e insere o resultado no registrador $s2
-	j termina #desvia para termina
 	
-termina:
-
-	li $v0,1 #comando de impressão de inteiro na tela
-	la $a0, ($s2) #coloca o registrador $s2 para ser impresso
-	syscall # efetua a chamada ao sistema
+sube:
+	li $v0,4
+	la $a0, $msg_sub 
+	syscall 
+	sub $s2, $s0, $s1 
+	jal fim_e_impressao 
+	 
+multi:
+	li $v0,4
+	la $a0, $msg_mult 
+	syscall  
+	mul $s2, $s0, $s1 
+	jal fim_e_impressao 
+		
+soma:
+	li $v0,4
+	la $a0, $msg_soma 
+	syscall 
+	add $s2, $s0, $s1 
+        jal fim_e_impressao 
+        
+fim_e_impressao:
+	li $v0,1
+	la $a0, ($s2)
+	syscall 
+	jal inicio
 	
-	li $v0, 10 # comando de exit
-	syscall # efetua a chamada ao sistema
+fim_fim:
+        li $v0, 10 
+	syscall
+	

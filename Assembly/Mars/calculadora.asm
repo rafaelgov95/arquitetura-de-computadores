@@ -19,7 +19,7 @@ msg_resultado: .ascii "Resultado:"
  sub $t2, $t1,$t0
  # if($t0==1) 
  beq $t2,$zero,soma
-add $s0 
+ 
  li $t1,2
  sub $t2, $t1,$t0
  # if($t0==2) 
