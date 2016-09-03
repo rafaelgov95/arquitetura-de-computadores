@@ -24,7 +24,7 @@ main:
 	jal soma
 	jal final
 soma:	
-# linhas para soma
+
 	lw $t1,0($t0) 
 	add $t2,$t1,$zero 
 	
@@ -40,7 +40,8 @@ soma:
 	
 	lw $t1,16($t0) 
 	add $t2,$t1,$t2 
-	#melhor parte disvio condicional :D
+	
+	
 	jr $ra
 final:	
 	li $v0,1

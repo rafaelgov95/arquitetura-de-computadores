@@ -1,0 +1,43 @@
+
+Trabalho de Arquitetura de Computadores I.
+
+Curso: Sistemas de Informação
+Nome do Professor: Kleber Kruger
+Nome do Aluno: Rafael Viana
+
+O Projeto teve como objetivo a constução de um programa em Assembly Mibs
+Sendo que veria lêr um vetor N e depois ordenalo e imprimir com o numero de Trocas Realizadas por aquele algoritmo escolhido, os algoritmos implementados são Bubble Sort, Insert Sort, Select Sort e Merge Sort.
+
+Como Funciona ?:
+Esse código é utilizado pelo simulador Mars que foi construido pela Missouri State University.
+Ele é composto por dois menus sendo eles: "Primeiro Menu" e um submenu "Menu Ordenação":
+
+Primeiro Menu
+
+No primeiro menu temos 4 opções sendo elas :
+
+'1' Criar Novo Vetor : (Cria um novo vetor apagando o anterior ordenado ou nao)
+
+'2' Ver Vetor : (Imprimi o vetor salvo na memoria pode ser que ele esteja ordenado ou nao)
+
+'3' Ordenar Vetor : (Este é um submenu que contem os metodos de ordenação) 
+
+'0' Sair
+
+
+Menu Ordenação
+
+No Submenu ordenação temos 4 opções sendo elas: 
+
+'1' Bubble Sort : (Ordena Utilizando a logica Buuble Sort e imprimi quantidade de Trocas)
+
+'2' Insert Sort : (Ordena Utilizando a logica Insert Sort e imprimi quantidade de Trocas)
+
+'3' Select Sort : (Ordena Utilizando a logica Select Sort e imprimi quantidade de Trocas)
+
+'4' Meger Sort : (Ordena Utilizando a logica Merge Sort e imprimi quantidade de Trocas)
+
+
+Obs: Apos ordenação você é lançado para o Primeiro Menu onde deve aperta "2" para imprimir o menu ordenado.
+
+Fim do LEIA-ME
