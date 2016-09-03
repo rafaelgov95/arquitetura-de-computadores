@@ -100,8 +100,10 @@ inicio_criar_vetor:
 # pula para inicio_criavetor	                       
 	j inicio_criar_vetor	
 # a Impressao Começa aqui criasse um t1 e zera ele;
-prepara_imprimi_vetor: 
+prepara_imprimi_vetor:
+# nosso t1 e zerado para ser nosso index 
         addi $t1,$zero,0 
+# pula para inicia_imprimi_vetor
         j inicia_imprimi_vetor	
 # percorre o Array ate que T1 seja igual a T0        
 inicia_imprimi_vetor:
@@ -349,29 +351,48 @@ loop_merge:
 #####################################################CÓDIGOS REUTILIZADOS ##############################################################	
 # pega o contador S6 e imprimi junto a uma msg
 imprimi_troca:
+# chamada de sistema para imprimir inteiro
 	li $v0,1
+# a0 revebe S6(nosso contador de trocas)
 	move $a0,$s6
+# chamada de sistema	
 	syscall
+# chamada de sitema pra imprimir msg
 	li $v0,4
+# a0 recebe a msg
 	la $a0,$informa_trocas
+# chamada de sistema
 	syscall
+# pula para o menu principal
 	j inicio  
 #pergunta se oque esta em S1 for maior que s2 entao troca	     
 if:
+# acesso na memoria e valor no Array index t2 vai para s1 
 	lw $s1,Array($t2) 
+# s4 recebe (t2-4)
 	subi $s4,$t2,4
+# acesso na memoria e valor no Array index s4 vai para s2 
 	lw $s2,Array($s4)
+# se s2 menor que s1 entao t4 rebe 1
 	sltu $t4,$s2,$s1
+# se s2 for maior que s1 entao pula para troca
 	bne $t4,1,troca
+# retorna pra quem o chamou
         jr $ra
-#operacao de troca       
+# operacao de troca       
 troca:	
+# nosso contador S6 recebe S6+1
         addi $s6,$s6,1
+# Guarda valor de S2 em Array com index T2
 	sw $s2,Array($t2)
+# Guarda valor de S1 em Array com index S4
 	sw $s1,Array($s4)
+# retorna pra quem o chamou
 	jr $ra
-#Chamada pra fechar o progra	
+# Chamada pra fechar o progra	
 fim_programa:
-        li $v0,10
+# chamada de encerramento do codigo
+         li $v0,10
+# chamada de sistema    
         syscall	
 	
