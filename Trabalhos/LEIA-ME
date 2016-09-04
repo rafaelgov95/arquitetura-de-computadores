@@ -6,8 +6,8 @@
 						Nome do Professor: Kleber Kruger
 						Nome do Aluno: Rafael Viana
 
-Como trabalho avaliativo foi desenvolvido um programa em Assembly Mibs para ordenação de um vetor
-	Onde lê um vetor N e depois ordena-lo e imprimir com o numero de trocas realizadas por aquele algoritmo escolhido, os algoritmos implementados são Bubble Sort, Insert Sort, Select Sort e Merge Sort.
+Como trabalho avaliativo foi desenvolvido um programa em Assembly Mibs para criação ordenação e impressão de um vetor
+Onde lê um vetor N e depois ordena-lo e imprimir com o numero de trocas realizadas por aquele algoritmo escolhido, os algoritmos implementados são Bubble Sort, Insert Sort, Select Sort e Merge Sort.
 
 Como Funciona ?!:
 
