@@ -1,9 +1,9 @@
+					INICIO DO LEIA-ME
+			  Trabalho de Arquitetura de Computadores I.
 
-Trabalho de Arquitetura de Computadores I.
-
-Curso: Sistemas de Informação
-Nome do Professor: Kleber Kruger
-Nome do Aluno: Rafael Viana
+				Curso: Sistemas de Informação
+				Nome do Professor: Kleber Kruger
+				Nome do Aluno: Rafael Viana
 
 Como trabalho avaliativo foi desenvolvido um programa em Assembly Mibs para ordenação de um vetor
 	Onde lê um vetor N e depois ordena-lo e imprimir com o numero de trocas realizadas por aquele algoritmo escolhido, os algoritmos implementados são Bubble Sort, Insert Sort, Select Sort e Merge Sort.
@@ -62,4 +62,5 @@ Pontos Positivos e Pontos Negativos:
 Pontos positivos: A utilização de um código de montagem ajuda a compreender melhor o funcionamento por trás do compilador, forçando um melhor raciocínio lógico.
 
 Pontos Negativos: Difícil e longa codificação das classes e métodos.   
-Fim do LEIA-ME
+	
+					FIM DO LEIA-ME
