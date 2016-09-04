@@ -42,7 +42,7 @@ No Submenu Ordenação temos 4 opções sendo elas:
 '4' Meger Sort : (Ordena Utilizando a lógica Merge Sort e imprimi quantidade de Trocas)
 
 
-Obs: Apos ordenação você é lançado para o Primeiro Menu onde deve aperta "2" para imprimir o vetor ordenado.
+Obs: Após a ordenação você é lançado para o Primeiro Menu onde deve aperta "2" para imprimir o vetor ordenado.
 
 Composição básica dos Métodos:
 
