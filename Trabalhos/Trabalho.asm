@@ -1,25 +1,34 @@
+#
 .data
 #Array
 Array:  .space 2000    
 #msgs para menus principais
 $menu_ordena: .asciiz "\nEscolha uma das Opçoẽs abaixo: \n1 - Buuble Sort \n2 - Insert Sort \n3 - Select Sort \n4 - Meger Sort \n0 - Voltar\n"
+#
 $menu: .asciiz "\nOlá Seja bem Vindo a MegaMaster Ordenador da nave Apollo-18 \n Agora escolhe uma das Opçoẽs abaixo: \n 1 - Criar Novo Vetor\n 2 - Ver Vetor \n 3 - Ordenar Vetor \n 0 - Sair \n"
 #msgs para montar vetor
 $informa_opcaoinvalida: .asciiz "Opção invalida"
+#
 $informa_vetorNaoCriado: .asciiz "VETOR NAO CRIADO\n"
+#
 $informa_quantidadeDeVetor: .asciiz "INFORME A QUANTIDADE DE POSICAO NO SEU VETOR "
+#
 $informa_posicao: .asciiz "O VETOR NA POSIÇÃO: "
+#
 $informa_Numero: .asciiz " COTÉM O NUMERO "
+#
 $informa_Numero_para_posicao: .asciiz " INFORME UM INTEIRO PARA COLOCAR NA POSIÇÃO: "
-#msg para quebrar linha
+# msg para quebrar linha
 $quebraLinha: .asciiz "\n"
 # Menus para ordenação
-$menu_ordena_buublesort: .asciiz "\nORDENAÇÃO UTILIZANDO BUUBLESORT\n"
 $menu_ordena_insertsort: .asciiz "\nORDENAÇÃO UTILIZANDO INSERTSORT\n"
+#
 $menu_ordena_selectsort: .asciiz "\nORDENAÇÃO UTILIZANDO SELECTSORT\n"
+#
 $menu_ordena_mergesort: .asciiz "\nORDENAÇAO UTILIZANDO MERGESORT\n"
 # Ordenacao Comparacao
 $informa_trocas: .asciiz " -> Troca Efetuadas nessa Bagaça\n"
+#
 .text 
 #Menu Incicial onde tem uma sequencia de beq para definir as opcôes
 inicio:
@@ -194,21 +203,21 @@ primeiro_for_bubble:
 # se T1 nao esta zerado ele zera T2 	
         addi $t2,$zero,0   
 #pula para segundo_for
-	j segundo_for
+	j segundo_for_bubble
 # 3º Parte bubble		
-segundo_for:
+segundo_for_bubble:
 #pergunda se t2 < t1
 	slt $s1,$t2,$t1
 # se nao for ele pula para subrair T1 em menos 4 	
-	bne $s1,1,sub_primeiro_for
+	bne $s1,1,sub_primeiro_for_bubble
 #pula para o if (ESTE BLOCO ESTA EM CODIGOS REUTILIZADOS NO FIM DO ARQUIVO)	
         jal if
 # Adiciona + 4 em T2
 	addi $t2,$t2,4
 #pula para 	
- 	jal segundo_for
+ 	jal segundo_for_bubble
 # bloco de subtração do t1
-sub_primeiro_for:
+sub_primeiro_for_bubble:
 #subtrai t1 em - 4
 	subi $t1,$t1,4
 #pula para bloco primeiro for bubble	
